@@ -1,9 +1,8 @@
 local null_ls = require("null-ls")
 
-local opts = {
-  sources = {
+-- register any number of sources simultaneously
+local sources = {
     null_ls.builtins.formatting.clang_format,
-  }
 }
 
-return opts
+null_ls.setup({ sources = sources })
