@@ -13,6 +13,13 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   {'navarasu/onedark.nvim', name = 'onedark', priority = 1000},
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = "VeryLazy",
+    opts = function ()
+      return require("core.plugin_config.null_ls")
+    end,
+  },
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
   'nvim-lualine/lualine.nvim',
@@ -24,7 +31,15 @@ local plugins = {
   "rafamadriz/friendly-snippets",
   "github/copilot.vim",
   {
-    "williamboman/mason.nvim",
+    {
+      "williamboman/mason.nvim",
+      opts = {
+        ensure_installed = {
+          "clangd",
+          "clang-format",
+        }
+      }
+    },
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   },
