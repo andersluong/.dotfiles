@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  {'navarasu/onedark.nvim', name = 'onedark', priority = 1000},
+  {'projekt0n/github-nvim-theme', name = 'github-theme', priority = 1000},
   "jose-elias-alvarez/null-ls.nvim",
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
