@@ -15,4 +15,6 @@ vim.opt.expandtab = true
 --Line numbers
 vim.wo.number = true
 
+vim.cmd('setlocal signcolumn=yes')
+
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')

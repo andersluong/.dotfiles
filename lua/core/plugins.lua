@@ -34,10 +34,7 @@ local plugins = {
     tag = '0.1.4',
     dependencies = {{'nvim-lua/plenary.nvim'}}
   },
-}
-
-local opts = {
-  colorscheme = "onedark",
+  'm4xshen/autoclose.nvim'
 }
 
 require("lazy").setup(plugins, opts)
