@@ -34,7 +34,8 @@ local plugins = {
     tag = '0.1.4',
     dependencies = {{'nvim-lua/plenary.nvim'}}
   },
-  'm4xshen/autoclose.nvim'
+  'm4xshen/autoclose.nvim',
+  {'akinsho/toggleterm.nvim', version = "*", config = true}
 }
 
 require("lazy").setup(plugins, opts)
