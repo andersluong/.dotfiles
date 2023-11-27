@@ -1,5 +1,5 @@
-vim.o.showtabline = 2
 vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
+vim.o.showtabline = 2
 
 vim.api.nvim_set_keymap("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
