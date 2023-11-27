@@ -1,4 +1,6 @@
-require("toggleterm").setup{}
+require("toggleterm").setup{
+  start_in_insert = true,
+}
 
 vim.keymap.set('n', '<c-t>', ':ToggleTerm<CR>')
 function _G.set_terminal_keymaps()
