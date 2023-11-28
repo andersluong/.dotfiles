@@ -36,7 +36,14 @@ local plugins = {
     dependencies = {{'nvim-lua/plenary.nvim'}}
   },
   'm4xshen/autoclose.nvim',
-  {'akinsho/toggleterm.nvim', version = "*", config = true}
+  {'akinsho/toggleterm.nvim', version = "*", config = true},
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+        -- add any options here
+    },
+    lazy = false,
+  },
 }
 
 require("lazy").setup(plugins, opts)
