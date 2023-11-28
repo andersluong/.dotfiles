@@ -36,7 +36,7 @@ local plugins = {
     dependencies = {{'nvim-lua/plenary.nvim'}}
   },
   'm4xshen/autoclose.nvim',
-  {'akinsho/toggleterm.nvim', version = "*", config = true},
+  {'akinsho/toggleterm.nvim', version = "*"},
   {
     'numToStr/Comment.nvim',
     opts = {
