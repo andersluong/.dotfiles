@@ -2,6 +2,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
     "clangd",
+    "tsserver",
   },
 })
 
@@ -34,4 +35,9 @@ lspconfig.clangd.setup {
     "clangd",
     "--offset-encoding=utf-16",
   },
+}
+
+lspconfig.tsserver.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
