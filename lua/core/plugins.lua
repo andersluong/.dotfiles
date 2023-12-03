@@ -12,14 +12,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  {'projekt0n/github-nvim-theme', name = 'github-theme', priority = 1000},
-  "jose-elias-alvarez/null-ls.nvim",
+  {'projekt0n/github-nvim-theme', lazy = false, priority = 1000},
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = "VeryLazy",
+  },
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
   'nvim-lualine/lualine.nvim',
   'nvim-treesitter/nvim-treesitter',
   'nanozuki/tabby.nvim',
-  'ohrsh7th/nvim-cmp',
+  'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
   'L3MON4D3/LuaSnip',
   'saadparwaiz1/cmp_luasnip',

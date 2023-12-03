@@ -15,7 +15,7 @@ local on_attach = function(_, _)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
   vim.keymap.set('n', '<space>fm', function()
     vim.lsp.buf.format { async = true }
-  end, {})
+  end, { })
 end
 
 
@@ -40,4 +40,10 @@ lspconfig.clangd.setup {
 lspconfig.tsserver.setup{
   on_attach = on_attach,
   capabilities = capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
 }
+
