@@ -29,3 +29,7 @@ vim.keymap.set('x','Y','"+Y')
 -- Move lines
 vim.keymap.set('n','<C-j>',':m .+1<CR>==')
 vim.keymap.set('n','<C-k>',':m .-2<CR>==')
+
+-- Stop comments from going to the next line
+vim.cmd('autocmd BufEnter * set formatoptions-=cro')
+vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
