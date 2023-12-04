@@ -19,6 +19,52 @@ return {
     end,
   },
   {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    event = { "BufReadPost", "BufNewFile" },
+    keys = {
+      { "<C-1>",     ":BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
+      { "<C-Space>", ":BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
+      { "<C-3>",     ":BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
+      { "<C-4>",     ":BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
+      { "<C-5>",     ":BufferLineGoToBuffer 5<CR>", desc = "Go to buffer 5" },
+      { "<C-6>",     ":BufferLineGoToBuffer 6<CR>", desc = "Go to buffer 6" },
+      { "<C-7>",     ":BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
+      { "<C-8>",     ":BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
+      { "<C-9>",     ":BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
+      { "<S-l>",     ":BufferLineCycleNext<CR>",    desc = "Next buffer" },
+      { "<S-h>",     ":BufferLineCyclePrev<CR>",    desc = "Previous buffer" },
+    },
+    config = function()
+      -- vim.opt.termguicolors = true
+      require("bufferline").setup {
+        options = {
+          diagnostics = "nvim_lsp",
+          diagnostics_indicator = function(count, _, _, _)
+            if count > 9 then
+              return "9+"
+            end
+            return tostring(count)
+          end,
+          separator_style = "slant",
+          offsets = {
+            {
+              filetype = "NvimTree",
+              text = "EXPLORER",
+              text_align = "center",
+            },
+          },
+          hover = {
+            enabled = true,
+            delay = 0,
+            reveal = { "close" },
+          },
+        }
+      }
+    end,
+  },
+  {
     'akinsho/toggleterm.nvim',
     version = "*",
     opts = {
@@ -38,6 +84,31 @@ return {
       vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
     end,
   },
-  -- icons
-  {'nvim-tree/nvim-web-devicons'},
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {
+    },
+    config = function()
+      require("ibl").setup({
+        debounce = 100,
+        indent = {
+          char = "▏",
+          tab_char = "▏",
+        },
+        scope = {
+          injected_languages = true,
+          show_start = true,
+          show_end = false,
+          char = "▏",
+          -- include = {
+          --   node_type = { ["*"] = { "*" } },
+          -- },
+          -- exclude = {
+          --   node_type = { ["*"] = { "source_file", "program" }, python = { "module" }, lua = { "chunk" } },
+          -- },
+        },
+      })
+    end
+  },
 }

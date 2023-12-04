@@ -13,6 +13,9 @@ vim.opt.expandtab = true
 --Line numbers
 vim.wo.number = true
 
+-- Mouse move
+vim.opt.mouse = "a"
+
 -- Stop comments from going to the next line
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
