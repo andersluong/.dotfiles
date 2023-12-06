@@ -1,3 +1,42 @@
+local ensure_installed = {
+  "clangd",
+  "tsserver",
+}
+
+local language_setup = function(lspconfig, on_attach, capabilities)
+  -- lua
+  lspconfig.lua_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+      },
+    },
+  }
+  -- c++
+  lspconfig.clangd.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {
+      "clangd",
+      "--offset-encoding=utf-16",
+    },
+  }
+  -- typescript
+  lspconfig.tsserver.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    init_options = {
+      preferences = {
+        disableSuggestions = true,
+      },
+    },
+  }
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -8,10 +47,7 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = {
-          "clangd",
-          "tsserver",
-        },
+        ensure_installed = ensure_installed,
       })
       local on_attach = function(_, _)
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
@@ -27,29 +63,8 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
 
-      lspconfig.lua_ls.setup {
-        on_attach = on_attach,
-        capabilities = capabilities
-      }
-
-      lspconfig.clangd.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        cmd = {
-          "clangd",
-          "--offset-encoding=utf-16",
-        },
-      }
-
-      lspconfig.tsserver.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        init_options = {
-          preferences = {
-            disableSuggestions = true,
-          },
-        },
-      }
+      -- setting up language servers
+      language_setup(lspconfig, on_attach, capabilities)
     end,
   },
   -- formatters
