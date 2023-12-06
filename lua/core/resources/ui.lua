@@ -24,18 +24,18 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     event = { "BufReadPost", "BufNewFile" },
     keys = {
-      { "gb1",    ":BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
-      { "gb2",    ":BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
-      { "gb3",    ":BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
-      { "gb4",    ":BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
-      { "gb5",    ":BufferLineGoToBuffer 5<CR>", desc = "Go to buffer 5" },
-      { "gb6",    ":BufferLineGoToBuffer 6<CR>", desc = "Go to buffer 6" },
-      { "gb7",    ":BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
-      { "gb8",    ":BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
-      { "gb9",    ":BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
-      { "<S-l>",  ":BufferLineCycleNext<CR>",    desc = "Next buffer" },
-      { "<S-h>",  ":BufferLineCyclePrev<CR>",    desc = "Previous buffer" },
-      { "gbo",    ":BufferLineCloseOthers<CR>",  desc = "Close other buffers" }
+      { "gb1",   ":BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
+      { "gb2",   ":BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
+      { "gb3",   ":BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
+      { "gb4",   ":BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
+      { "gb5",   ":BufferLineGoToBuffer 5<CR>", desc = "Go to buffer 5" },
+      { "gb6",   ":BufferLineGoToBuffer 6<CR>", desc = "Go to buffer 6" },
+      { "gb7",   ":BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
+      { "gb8",   ":BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
+      { "gb9",   ":BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
+      { "<S-l>", ":BufferLineCycleNext<CR>",    desc = "Next buffer" },
+      { "<S-h>", ":BufferLineCyclePrev<CR>",    desc = "Previous buffer" },
+      { "gbo",   ":BufferLineCloseOthers<CR>",  desc = "Close other buffers" }
     },
     config = function()
       -- vim.opt.termguicolors = true
@@ -49,6 +49,9 @@ return {
             return tostring(count)
           end,
           separator_style = "slant",
+          numbers = function(opts)
+            return string.format('%s', opts.raise(opts.ordinal))
+          end,
           offsets = {
             {
               filetype = "NvimTree",
@@ -86,31 +89,31 @@ return {
       vim.cmd("autocmd BufEnter * if &buftype ==# 'terminal' | startinsert! | endif")
     end,
   },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    opts = {
-    },
-    config = function()
-      require("ibl").setup({
-        debounce = 100,
-        indent = {
-          char = "▏",
-          tab_char = "▏",
-        },
-        scope = {
-          injected_languages = true,
-          show_start = true,
-          show_end = false,
-          char = "▏",
-          -- include = {
-          --   node_type = { ["*"] = { "*" } },
-          -- },
-          -- exclude = {
-          --   node_type = { ["*"] = { "source_file", "program" }, python = { "module" }, lua = { "chunk" } },
-          -- },
-        },
-      })
-    end
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   main = "ibl",
+  --   opts = {
+  --   },
+  --   config = function()
+  --     require("ibl").setup({
+  --       debounce = 100,
+  --       indent = {
+  --         char = "▏",
+  --         tab_char = "▏",
+  --       },
+  --       scope = {
+  --         injected_languages = true,
+  --         show_start = true,
+  --         show_end = false,
+  --         char = "▏",
+  --         -- include = {
+  --         --   node_type = { ["*"] = { "*" } },
+  --         -- },
+  --         -- exclude = {
+  --         --   node_type = { ["*"] = { "source_file", "program" }, python = { "module" }, lua = { "chunk" } },
+  --         -- },
+  --       },
+  --     })
+  --   end
+  -- },
 }
