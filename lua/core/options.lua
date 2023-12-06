@@ -10,7 +10,13 @@ vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 
---Line numbers
+-- Keep warning/error signs
+vim.o.signcolumn = 'yes'
+vim.diagnostic.config({
+  update_in_insert = true,
+})
+
+-- Line numbers
 vim.wo.number = true
 
 -- Mouse move

@@ -1,7 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.cmd('setlocal signcolumn=yes')
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 
 -- Copy to clipboard
