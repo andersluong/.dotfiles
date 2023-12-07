@@ -8,12 +8,14 @@ return {
           icons_enabled = true,
         },
         sections = {
-          lualine_a = {
+          lualine_a = { 'mode' },
+          lualine_b = {
             {
               'filename',
               path = 1,
             }
-          }
+          },
+          lualine_c = {}
         }
       }
     end,
@@ -39,8 +41,10 @@ return {
     },
     config = function()
       -- vim.opt.termguicolors = true
-      require("bufferline").setup {
+      local bufferline = require("bufferline")
+      bufferline.setup {
         options = {
+          style_preset = bufferline.style_preset.no_italic,
           diagnostics = "nvim_lsp",
           diagnostics_indicator = function(count, _, _, _)
             if count > 9 then
@@ -48,7 +52,7 @@ return {
             end
             return tostring(count)
           end,
-          separator_style = "slant",
+          separator_style = "thin",
           numbers = function(opts)
             return string.format('%s', opts.raise(opts.ordinal))
           end,
