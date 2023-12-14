@@ -35,8 +35,8 @@ return {
       { "gb7",   ":BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
       { "gb8",   ":BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
       { "gb9",   ":BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
-      { "<S-l>", ":BufferLineCycleNext<CR>",    desc = "Next buffer" },
-      { "<S-h>", ":BufferLineCyclePrev<CR>",    desc = "Previous buffer" },
+      -- { "<S-l>", ":BufferLineCycleNext<CR>",    desc = "Next buffer" },
+      -- { "<S-h>", ":BufferLineCyclePrev<CR>",    desc = "Previous buffer" },
       { "gbo",   ":BufferLineCloseOthers<CR>",  desc = "Close other buffers" }
     },
     config = function()
