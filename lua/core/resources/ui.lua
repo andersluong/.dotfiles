@@ -1,11 +1,14 @@
 return {
   {
     "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     config = function(_, _)
       require('lualine').setup {
         options = {
           icons_enabled = true,
+          theme = 'decay',
+          -- section_separators = '',
+          component_separators = ''
         },
         sections = {
           lualine_a = { 'mode' },
@@ -15,8 +18,14 @@ return {
               path = 1,
             }
           },
-          lualine_c = {}
-        }
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = { 'encoding', 'fileformat', 'filetype' },
+          lualine_z = { 'progress' }
+        },
+        -- inactive_sections = {
+        --   lualine_c = {},
+        -- }
       }
     end,
   },
@@ -26,25 +35,27 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     event = { "BufReadPost", "BufNewFile" },
     keys = {
-      { "gb1",   ":BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
-      { "gb2",   ":BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
-      { "gb3",   ":BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
-      { "gb4",   ":BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
-      { "gb5",   ":BufferLineGoToBuffer 5<CR>", desc = "Go to buffer 5" },
-      { "gb6",   ":BufferLineGoToBuffer 6<CR>", desc = "Go to buffer 6" },
-      { "gb7",   ":BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
-      { "gb8",   ":BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
-      { "gb9",   ":BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
+      { "gb1", ":BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
+      { "gb2", ":BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
+      { "gb3", ":BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
+      { "gb4", ":BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
+      { "gb5", ":BufferLineGoToBuffer 5<CR>", desc = "Go to buffer 5" },
+      { "gb6", ":BufferLineGoToBuffer 6<CR>", desc = "Go to buffer 6" },
+      { "gb7", ":BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
+      { "gb8", ":BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
+      { "gb9", ":BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
       -- { "<S-l>", ":BufferLineCycleNext<CR>",    desc = "Next buffer" },
       -- { "<S-h>", ":BufferLineCyclePrev<CR>",    desc = "Previous buffer" },
-      { "gbo",   ":BufferLineCloseOthers<CR>",  desc = "Close other buffers" }
+      { "gbo", ":BufferLineCloseOthers<CR>",  desc = "Close other buffers" }
     },
     config = function()
-      -- vim.opt.termguicolors = true
       local bufferline = require("bufferline")
       bufferline.setup {
         options = {
-          style_preset = bufferline.style_preset.no_italic,
+          style_preset = {
+            bufferline.style_preset.no_italic,
+            bufferline.style_preset.no_bold
+          },
           diagnostics = "nvim_lsp",
           diagnostics_indicator = function(count, _, _, _)
             if count > 9 then

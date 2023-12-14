@@ -1,11 +1,24 @@
 return {
   {
     'nvim-tree/nvim-tree.lua',
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
-      vim.g.loaded_netrw = 1
-      vim.g.loaded_netrwPlugin = 1
 
-      require("nvim-tree").setup()
+      require("nvim-tree").setup({
+        renderer = {
+          indent_markers = {
+            enable = true,
+            inline_arrows = true,
+            icons = {
+              corner = "└",
+              edge = "│",
+              item = "│",
+              bottom = "─",
+              none = " ",
+            },
+          },
+        }
+      })
 
       vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')
 

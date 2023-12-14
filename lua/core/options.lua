@@ -22,6 +22,11 @@ vim.wo.number = true
 -- Mouse move
 vim.opt.mouse = "a"
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+vim.opt.termguicolors = true
+
 -- Stop comments from going to the next line
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
