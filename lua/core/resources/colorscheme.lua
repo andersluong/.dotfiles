@@ -29,7 +29,7 @@ return {
           comments = false,
         },
         override = {
-          ["@punctuation.bracket"] = { fg = colors.brightblue --[[ "#434848" ]] },
+          ["@punctuation.bracket"] = { fg = colors.white --[[ "#434848" ]] },
         }
       })
     end,

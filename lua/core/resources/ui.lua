@@ -23,9 +23,14 @@ return {
           lualine_y = { 'encoding', 'fileformat', 'filetype' },
           lualine_z = { 'progress' }
         },
-        -- inactive_sections = {
-        --   lualine_c = {},
-        -- }
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {},
+        }
       }
     end,
   },
