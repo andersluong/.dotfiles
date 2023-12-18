@@ -20,7 +20,7 @@ return {
           },
           lualine_c = {},
           lualine_x = {},
-          lualine_y = { 'encoding', 'fileformat', 'filetype' },
+          lualine_y = { 'encoding', { "fileformat", symbols = { unix = "" } } , 'filetype' },
           lualine_z = { 'progress' }
         },
         inactive_sections = {
