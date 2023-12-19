@@ -21,9 +21,9 @@ return {
         nvim_tree = {
           contrast = true, -- or false to disable tree contrast
         },
-        cmp = {
-          block_kind = false,
-        },
+        -- cmp = {
+        --   block_kind = false,
+        -- },
         italics = {
           code = false,
           comments = false,
