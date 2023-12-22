@@ -19,7 +19,7 @@ return {
       require('decay').setup({
         style = 'default',
         nvim_tree = {
-          contrast = true, -- or false to disable tree contrast
+          contrast = false, -- or false to disable tree contrast
         },
         -- cmp = {
         --   block_kind = false,

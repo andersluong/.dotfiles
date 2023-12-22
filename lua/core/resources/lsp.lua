@@ -49,7 +49,8 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = ensure_installed,
       })
-      local on_attach = function(_, _)
+      local on_attach = function(client)
+        -- mappings
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
@@ -59,6 +60,7 @@ return {
         vim.keymap.set('n', '<space>fm', function()
           vim.lsp.buf.format { async = true }
         end, {})
+        client.server_capabilities.semanticTokensProvider = nil
       end
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
