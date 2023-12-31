@@ -71,7 +71,7 @@ return {
   },
   -- formatters
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     event = "VeryLazy",
     dependencies = {
       "williamboman/mason.nvim",
