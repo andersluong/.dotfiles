@@ -40,18 +40,18 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     event = { "BufReadPost", "BufNewFile" },
     keys = {
-      { "gb1", ":BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
-      { "gb2", ":BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
-      { "gb3", ":BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
-      { "gb4", ":BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
-      { "gb5", ":BufferLineGoToBuffer 5<CR>", desc = "Go to buffer 5" },
-      { "gb6", ":BufferLineGoToBuffer 6<CR>", desc = "Go to buffer 6" },
-      { "gb7", ":BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
-      { "gb8", ":BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
-      { "gb9", ":BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
-      -- { "<S-l>", ":BufferLineCycleNext<CR>",    desc = "Next buffer" },
-      -- { "<S-h>", ":BufferLineCyclePrev<CR>",    desc = "Previous buffer" },
-      { "gbo", ":BufferLineCloseOthers<CR>",  desc = "Close other buffers" }
+      { "<leader>1", ":BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
+      { "<leader>2", ":BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
+      { "<leader>3", ":BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
+      { "<leader>4", ":BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
+      { "<leader>5", ":BufferLineGoToBuffer 5<CR>", desc = "Go to buffer 5" },
+      { "<leader>6", ":BufferLineGoToBuffer 6<CR>", desc = "Go to buffer 6" },
+      { "<leader>7", ":BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
+      { "<leader>8", ":BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
+      { "<leader>9", ":BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
+      { "<leader>n", ":BufferLineMoveNext<CR>",    desc = "Move buffer to right" },
+      { "<leader>p", ":BufferLineMovePrev<CR>",    desc = "Move buffer to left" },
+      { "<leader>o", ":BufferLineCloseOthers<CR>",  desc = "Close other buffers" }
     },
     config = function()
       local bufferline = require("bufferline")
@@ -61,6 +61,7 @@ return {
             bufferline.style_preset.no_italic,
             bufferline.style_preset.no_bold
           },
+          mappings = true,
           diagnostics = "nvim_lsp",
           diagnostics_indicator = function(count, _, _, _)
             if count > 9 then
