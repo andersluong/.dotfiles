@@ -12,7 +12,21 @@ return {
       vim.keymap.set('n', '<Space>fh', builtin.help_tags, {})
     end,
   },
-  { "github/copilot.vim" },
+  { 'github/copilot.vim' },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   config = function ()
+  --     require("copilot").setup()
+  --   end
+  -- },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   config = function ()
+  --     require("copilot_cmp").setup()
+  --   end
+  -- },
   {
     'Wansmer/treesj',
     keys = { '<space>m', '<space>j', '<space>s' },
@@ -24,7 +38,7 @@ return {
   {
     'numToStr/Comment.nvim',
     opts = {
-        -- add any options here
+      -- add any options here
 
     },
     lazy = false,
@@ -33,5 +47,5 @@ return {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     opts = {} -- this is equalent to setup({}) function
-}
+  }
 }
