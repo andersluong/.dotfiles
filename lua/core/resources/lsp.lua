@@ -88,22 +88,22 @@ return {
 
       null_ls.setup({
         sources = sources,
-        on_attach = function(client, bufnr)
-          -- format on save
-          if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({
-              group = au_group,
-              buffer = bufnr,
-            })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              group = au_group,
-              buffer = bufnr,
-              callback = function()
-                vim.lsp.buf.format({ bufnr = bufnr })
-              end
-            })
-          end
-        end
+        -- on_attach = function(client, bufnr)
+        --   -- format on save
+        --   if client.supports_method("textDocument/formatting") then
+        --     vim.api.nvim_clear_autocmds({
+        --       group = au_group,
+        --       buffer = bufnr,
+        --     })
+        --     vim.api.nvim_create_autocmd("BufWritePre", {
+        --       group = au_group,
+        --       buffer = bufnr,
+        --       callback = function()
+        --         vim.lsp.buf.format({ bufnr = bufnr })
+        --       end
+        --     })
+        --   end
+        -- end
       })
     end,
   },
