@@ -1,42 +1,3 @@
-local ensure_installed = {
-  "clangd",
-  "tsserver",
-}
-
-local language_setup = function(lspconfig, on_attach, capabilities)
-  -- lua
-  lspconfig.lua_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-      },
-    },
-  }
-  -- c++
-  lspconfig.clangd.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = {
-      "clangd",
-      "--offset-encoding=utf-16",
-    },
-  }
-  -- typescript
-  lspconfig.tsserver.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    init_options = {
-      preferences = {
-        disableSuggestions = true,
-      },
-    },
-  }
-end
-
 return {
   {
     "neovim/nvim-lspconfig",
@@ -47,7 +8,11 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = ensure_installed,
+        ensure_installed = {
+          "clangd",
+          "tsserver",
+          "pyright",
+        },
       })
       local on_attach = function(client)
         -- mappings
@@ -66,7 +31,42 @@ return {
       local lspconfig = require("lspconfig")
 
       -- setting up language servers
-      language_setup(lspconfig, on_attach, capabilities)
+      -- lua
+      lspconfig.lua_ls.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      }
+      -- c++
+      lspconfig.clangd.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        cmd = {
+          "clangd",
+          "--offset-encoding=utf-16",
+        },
+      }
+      -- typescript
+      lspconfig.tsserver.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        init_options = {
+          preferences = {
+            disableSuggestions = true,
+          },
+        },
+      }
+      -- python
+      lspconfig.pyright.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+      }
     end,
   },
   -- formatters
@@ -77,13 +77,16 @@ return {
       "williamboman/mason.nvim",
     },
     config = function()
-      local au_group = vim.api.nvim_create_augroup("LspFormatting", {})
+      -- local au_group = vim.api.nvim_create_augroup("LspFormatting", {})
       local null_ls = require("null-ls")
 
       -- register any number of sources simultaneously
       local sources = {
+        -- C++
         null_ls.builtins.formatting.clang_format,
         null_ls.builtins.formatting.prettier,
+        -- Python
+        null_ls.builtins.diagnostics.mypy,
       }
 
       null_ls.setup({
