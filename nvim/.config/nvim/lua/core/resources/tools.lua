@@ -6,10 +6,11 @@ return {
     config = function()
       local builtin = require('telescope.builtin')
 
-      vim.keymap.set('n', '<c-p>', builtin.find_files, {})
-      vim.keymap.set('n', '<Space><Space>', builtin.oldfiles, {})
-      vim.keymap.set('n', '<Space>fg', builtin.live_grep, {})
-      vim.keymap.set('n', '<Space>fh', builtin.help_tags, {})
+      -- vim.keymap.set('n', '<c-p>', builtin.find_files, {})
+      vim.keymap.set('n', '<leader><leader>', builtin.find_files, {})
+      -- vim.keymap.set('n', '<Space><Space>', builtin.oldfiles, {})
+      vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+      vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
     end,
   },
   { 'github/copilot.vim' },
@@ -47,5 +48,18 @@ return {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     opts = {} -- this is equalent to setup({}) function
+  },
+  {
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end,
+  opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
   }
+}
 }
