@@ -30,6 +30,8 @@ return {
         },
         override = {
           ["@punctuation.bracket"] = { fg = colors.white --[[ "#434848" ]] },
+          FloatBorder = { fg = colors.white },
+          TelescopeBorder = { fg = colors.white },
         }
       })
     end,
