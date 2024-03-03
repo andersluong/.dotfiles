@@ -20,7 +20,8 @@ vim.diagnostic.config({
 vim.wo.number = true
 
 -- Mouse move
-vim.opt.mouse = "a"
+-- vim.opt.mouse = "a"
+vim.o.mousemoveevent = true
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
