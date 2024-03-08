@@ -61,6 +61,7 @@ return {
             bufferline.style_preset.no_italic,
             bufferline.style_preset.no_bold
           },
+          show_close_icon = false,
           mappings = true,
           diagnostics = "nvim_lsp",
           diagnostics_indicator = function(count, _, _, _)
@@ -85,6 +86,7 @@ return {
             delay = 0,
             reveal = { "close" },
           },
+          always_show_bufferline = true,
         }
       }
     end,
