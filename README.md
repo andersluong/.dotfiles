@@ -1,4 +1,4 @@
-#.dotfiles configuration
+# .dotfiles configuration
 
 ## Prerequisities
 
