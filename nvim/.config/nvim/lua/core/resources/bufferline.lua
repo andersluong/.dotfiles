@@ -1,5 +1,8 @@
 return {
   {
+    'famiu/bufdelete.nvim'
+  },
+  {
     'akinsho/bufferline.nvim',
     version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
@@ -16,7 +19,8 @@ return {
       { "<leader>9", ":BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
       { "<leader>n", ":BufferLineMoveNext<CR>",    desc = "Move buffer to right" },
       { "<leader>p", ":BufferLineMovePrev<CR>",    desc = "Move buffer to left" },
-      { "<leader>o", ":BufferLineCloseOthers<CR>",  desc = "Close other buffers" }
+      { "<leader>o", ":BufferLineCloseOthers<CR>",  desc = "Close other buffers" },
+      { "<leader>w", ":Bdelete<CR>" }
     },
     config = function()
       local bufferline = require("bufferline")

@@ -25,6 +25,9 @@ return {
         vim.keymap.set('n', '<space>fm', function()
           vim.lsp.buf.format { async = true }
         end, {})
+        vim.keymap.set('n', 'ge', function()
+          vim.diagnostics.open_float()
+        end, { desc = 'Open error log in a floating dialog' })
         client.server_capabilities.semanticTokensProvider = nil
       end
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
