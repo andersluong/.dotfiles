@@ -16,7 +16,9 @@ You need to download FiraCode Nerd Font available from [nerdfonts.com](https://w
     ```shell
     # On Linux
     sudo pacman -S stow
+    ```
 
+    ```shell
     # On MacOS
     brew install stow
     ```
