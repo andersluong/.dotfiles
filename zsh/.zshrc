@@ -24,9 +24,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-plugins=(git zsh-autosuggestions)
+plugins=(
+  git
+  gitfast
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  ohmyzsh-full-autoupdate
+  you-should-use
+  zoxide
+  colored-man-pages
+)
 
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -47,5 +56,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 eval "$(zoxide init --cmd cd zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+
