@@ -27,3 +27,5 @@ You need to download FiraCode Nerd Font available from [nerdfonts.com](https://w
     ```shell
     ./install.sh
     ```
+
+    Note: If you don't have oh-my-zsh installed earlier, this will install it first, then you have to run the script again.
