@@ -5,10 +5,10 @@ rm -rf $HOME/.zshrc
 rm -rf $HOME/.p10k.zsh
 
 # Check for Oh My Zsh and install if we don't have it
-if ! [ -x "$(command -v ZSH)" ]; then
+# if ! [ -x "$(command -v ZSH)" ]; then
   echo "Installing Oh My Zsh..."
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
-fi
+# fi
 
 clone_or_pull(){
   repo_url=$1

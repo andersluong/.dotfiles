@@ -30,7 +30,6 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   ohmyzsh-full-autoupdate
-  you-should-use
   zoxide
   colored-man-pages
 )
