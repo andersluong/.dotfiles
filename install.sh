@@ -1,7 +1,12 @@
 #!/bin/bash
 
+# Clean up files if we have them
+rm -rf $HOME/.zshrc
+rm -rf $HOME/.p10k.zsh
+
 # Check for Oh My Zsh and install if we don't have it
-if test ! $(which omz); then
+if ! [ -x "$(command -v ZSH)" ]; then
+  echo "Installing Oh My Zsh..."
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
 fi
 
@@ -40,7 +45,6 @@ install_plugins() {
 
 install_plugins theme powerlevel10k https://github.com/romkatv/powerlevel10k.git
 install_plugins plugin ohmyzsh-full-autoupdate https://github.com/Pilaton/OhMyZsh-full-autoupdate.git
-install_plugins plugin you-should-use https://github.com/MichaelAquilina/zsh-you-should-use.git
 install_plugins plugin zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting.git
 install_plugins plugin zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.git
 
