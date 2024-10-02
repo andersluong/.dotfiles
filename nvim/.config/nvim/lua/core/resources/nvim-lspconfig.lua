@@ -26,7 +26,7 @@ return {
           vim.lsp.buf.format { async = true }
         end, {})
         vim.keymap.set('n', 'ge', function()
-          vim.diagnostics.open_float()
+          vim.diagnostic.open_float()
         end, { desc = 'Open error log in a floating dialog' })
         client.server_capabilities.semanticTokensProvider = nil
       end
