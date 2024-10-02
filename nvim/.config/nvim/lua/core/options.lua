@@ -31,3 +31,4 @@ vim.opt.termguicolors = true
 -- Stop comments from going to the next line
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
+
