@@ -8,22 +8,21 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     event = { "BufReadPost", "BufNewFile" },
     keys = {
-      { "<leader>1", ":BufferLineGoToBuffer 1<CR>", desc = "Go to buffer 1" },
-      { "<leader>2", ":BufferLineGoToBuffer 2<CR>", desc = "Go to buffer 2" },
-      { "<leader>3", ":BufferLineGoToBuffer 3<CR>", desc = "Go to buffer 3" },
-      { "<leader>4", ":BufferLineGoToBuffer 4<CR>", desc = "Go to buffer 4" },
-      { "<leader>5", ":BufferLineGoToBuffer 5<CR>", desc = "Go to buffer 5" },
-      { "<leader>6", ":BufferLineGoToBuffer 6<CR>", desc = "Go to buffer 6" },
-      { "<leader>7", ":BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
-      { "<leader>8", ":BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
-      { "<leader>9", ":BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
-      { "<leader>n", ":BufferLineMoveNext<CR>",    desc = "Move buffer to right" },
-      { "<leader>p", ":BufferLineMovePrev<CR>",    desc = "Move buffer to left" },
       { "<leader>o", ":BufferLineCloseOthers<CR>",  desc = "Close other buffers" },
-      { "<leader>w", ":Bdelete<CR>" }
+      { "gb", ":BufferLinePick<CR>", "Pick a buffer in view" },
+      { "gD", ":Bdelete<CR>" }
     },
     config = function()
       local bufferline = require("bufferline")
+      vim.api.nvim_set_keymap("n", "<leader>1", [[<Cmd>lua require("bufferline").go_to(1, true)<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<leader>2", [[<Cmd>lua require("bufferline").go_to(2, true)<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<leader>3", [[<Cmd>lua require("bufferline").go_to(3, true)<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<leader>4", [[<Cmd>lua require("bufferline").go_to(4, true)<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<leader>5", [[<Cmd>lua require("bufferline").go_to(5, true)<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<leader>6", [[<Cmd>lua require("bufferline").go_to(6, true)<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<leader>7", [[<Cmd>lua require("bufferline").go_to(7, true)<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<leader>8", [[<Cmd>lua require("bufferline").go_to(8, true)<CR>]], { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<leader>9", [[<Cmd>lua require("bufferline").go_to(9, true)<CR>]], { noremap = true, silent = true })
       bufferline.setup {
         options = {
           style_preset = {
@@ -40,9 +39,6 @@ return {
             return tostring(count)
           end,
           separator_style = "thin",
-          numbers = function(opts)
-            return string.format('%s', opts.raise(opts.ordinal))
-          end,
           offsets = {
             {
               filetype = "NvimTree",
@@ -50,6 +46,9 @@ return {
               text_align = "center",
             },
           },
+          numbers = function(opts)
+            return string.format("%s", opts.raise(opts.ordinal))
+          end,
           hover = {
             enabled = true,
             delay = 0,
