@@ -43,6 +43,7 @@ source $ZSH/oh-my-zsh.sh
 alias ls='colorls'
 alias w++='g++ -std=c++20 -pedantic -Wall -Wextra -Weffc++'
 alias vim='nvim'
+alias icat='kitten icat'
 
 # bun completions
 [ -s "/Users/andersluong/.bun/_bun" ] && source "/Users/andersluong/.bun/_bun"
@@ -55,4 +56,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 eval "$(zoxide init --cmd cd zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="/usr/local/mysql-shell/bin:$PATH"
+export PATH="/usr/local/opt/mysql@8.4/bin:$PATH"
 

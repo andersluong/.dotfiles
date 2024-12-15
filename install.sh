@@ -50,7 +50,7 @@ install_plugins plugin zsh-autosuggestions https://github.com/zsh-users/zsh-auto
 
 cd $HOME/.dotfiles || exit 1
 
-DOT_FOLDERS="nvim, kitty, zsh"
+DOT_FOLDERS="nvim, kitty, zsh, aerospace"
 
 for folder in $(echo $DOT_FOLDERS | sed "s/,/ /g"); do
     echo "[+] Folder :: $folder"

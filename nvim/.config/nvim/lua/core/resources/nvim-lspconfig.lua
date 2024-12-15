@@ -10,7 +10,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "clangd",
-          "tsserver",
+          "ts_ls",
           "pyright",
         },
       })
@@ -56,7 +56,7 @@ return {
         },
       }
       -- typescript
-      lspconfig.tsserver.setup {
+      lspconfig.ts_ls.setup {
         on_attach = on_attach,
         capabilities = capabilities,
         init_options = {
