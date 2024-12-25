@@ -25,7 +25,7 @@ return {
           ["@punctuation.bracket"] = { fg = colors.white --[[ "#434848" ]] },
           FloatBorder = { fg = colors.white },
           TelescopeBorder = { fg = colors.white, bg = util.darken(colors.white, 0.2) },
-          NormalFloat = { bg = util.darken(colors.foreground, 0.3) },
+          NormalFloat = { bg = colors.background },
           DiagnosticVirtualTextError = { bg = util.darken(colors.red, 0.2), fg = colors.red },
           DiagnosticVirtualTextWarn = { bg = util.darken(colors.yellow, 0.2), fg = colors.yellow },
           DiagnosticVirtualTextInfo = { bg = util.darken(colors.blue, 0.2), fg = colors.blue },
