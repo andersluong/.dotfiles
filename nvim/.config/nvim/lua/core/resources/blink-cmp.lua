@@ -45,7 +45,9 @@ return {
       },
 
       list = {
-        selection = 'manual',
+        selection = {
+          preselect = true,
+        },
       },
 
       menu = {
@@ -93,8 +95,10 @@ return {
     sources = {
         default = { "lsp", "path", "snippets", "buffer" },
         -- Disable sources for command-line mode
-        cmdline = {},
     },
+    cmdline = {
+      enabled = false,
+    }
   },
   opts_extend = { "sources.default" }
 }
